@@ -26,10 +26,8 @@ func Unpack(str string) (string, error) {
 			}
 			cnt := int(chars[i+1] - '0')
 			builder.WriteString(strings.Repeat(string(chars[i]), cnt))
-		} else {
-			if !unicode.IsNumber(chars[i]) {
-				builder.WriteRune(chars[i])
-			}
+		} else if !unicode.IsNumber(chars[i]) {
+			builder.WriteRune(chars[i])
 		}
 	}
 
